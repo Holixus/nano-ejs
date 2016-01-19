@@ -73,18 +73,18 @@ console output:
 * text `String` EJS text
 * args `String` compiled function arguments list (for ```new Function (args, body)```)
 * options `Object`
- * open_str `String` open embedded JS code symbols sequence (the default value is '<?')
- * close_str `String` clode embedded JS code symbols sequence (the default value is '?>')
- * global_id `String` identifier of global object (like `global` or `window`) (the default value is 'global')
+  * open_str `String` open embedded JS code symbols sequence (the default value is '<?')
+  * close_str `String` clode embedded JS code symbols sequence (the default value is '?>')
+  * global_id `String` identifier of global object (like `global` or `window`) (the default value is 'global')
 
 ### class: Ejs
 
 #### new Ejs(options)
 
 * options `Object`
- * open_str `String` open embedded JS code symbols sequence (the default value is '<?')
- * close_str `String` clode embedded JS code symbols sequence (the default value is '?>')
- * global_id `String` identifier of global object (like `global` or `window`) (the default value is 'global')
+  * open_str `String` open embedded JS code symbols sequence (the default value is '<?')
+  * close_str `String` clode embedded JS code symbols sequence (the default value is '?>')
+  * global_id `String` identifier of global object (like `global` or `window`) (the default value is 'global')
 
 EJS parser context.
 
