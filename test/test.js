@@ -232,11 +232,23 @@ suite('new Ejs({ open_str: "<%", close_str: "%>", global_id: "window" })', funct
 });
 
 suite('new Ejs({ open_str: "<%", close_str: "%>", global_id: "window" })', function () {
-	test('compile crash test', function (done) {
+	test('1 compile crash test', function (done) {
 		var text = "ert <? erert] ?> wrtret",
-		    src = "\"use strict\";\nvar $ = \"\";\n$+='ert ';\nerert]\n$+=' wrtret';\n;return $;\n";
+		    src = "function (one,two) {\n\"use strict\";\nvar $ = \"\";\n$+='ert ';\nerert]\n$+=' wrtret';\n;return $;\n}";
 		try {
 			Ejs.compile(text, "one,two");
+			done(Error('not failed!'));
+		} catch (e) {
+			assert.strictEqual(e.source, src);
+			done();
+		}
+	});
+
+	test('2 compile crash test', function (done) {
+		var text = "ert <? erert] ?> wrtret",
+		    src = "function () {\n\"use strict\";\nvar $ = \"\";\n$+='ert ';\nerert]\n$+=' wrtret';\n;return $;\n}";
+		try {
+			Ejs.compile(text);
 			done(Error('not failed!'));
 		} catch (e) {
 			assert.strictEqual(e.source, src);

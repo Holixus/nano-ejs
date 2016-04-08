@@ -102,7 +102,7 @@ function Ejs(options) {
 			try {
 				var f = new Function(args || '', src);
 			} catch (e) {
-				e.source = src;
+				e.source = 'function ('+(args||'')+') {\n'+src+'}';
 				throw e;
 			}
 			code = empty_code;
