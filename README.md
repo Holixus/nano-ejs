@@ -59,8 +59,8 @@ var css_helpers = {
 };
 
 var css_text = '\
-.error   { color: <?.hsv2hrgb(0, 1, 1)?>; }
-.warning { color: <?.hsv2hrgb(120, 1, 1)?>; }
+.error   { color: <?.hsv2hrgb(0, 1, 1)?>; }\n\
+.warning { color: <?.hsv2hrgb(120, 1, 1)?>; }\n\
 ';
 
 var ejs_fn = Ejs.compile(css_text, 'css_helpers', { global_id: 'css_helpers' });
@@ -68,8 +68,8 @@ console.log(ejs_fn(css_helpers));
 ```
 console output:
 ```
-.error   { color: #FF0000; }\n\
-.warning { color: #00FF00; }\n\
+.error   { color: #FF0000; }
+.warning { color: #00FF00; }
 ```
 
 ## API
