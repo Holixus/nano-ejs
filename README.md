@@ -50,11 +50,17 @@ The same as ```<?=global.function()?>```, where 'global' can be redefined by EJS
 This construction useful then you pass a some object to EJS function like...
 ```js
 var Ejs = require('nano-ejs'),
-    css_helpers = require('css-helpers'); // hypotetical module
+    nc = require('nano-color');
+
+var css_helpers = {
+	hsv2hrgb: function (h,s,v) {
+		return nc.rgb2hex(nc.hsv2rgb(h,s,v));
+	}
+};
 
 var css_text = '\
-.error   { color: <?.hsv2hrgb(0, 1, 1)?>; }\n\
-.warning { color: <?.hsv2hrgb(120, 1, 1)?>; }\n\
+.error   { color: <?.hsv2hrgb(0, 1, 1)?>; }
+.warning { color: <?.hsv2hrgb(120, 1, 1)?>; }
 ';
 
 var ejs_fn = Ejs.compile(css_text, 'css_helpers', { global_id: 'css_helpers' });
@@ -118,7 +124,9 @@ Returns JavaScript code translated from EJS.
 
 ```
 > console.log(new (require('nano-ejs'))().push_ejs('text<?=5?>--').push_code().listing());
-$.push('text', 5+'', '--');
+"use strict";
+var $ = "";
+$+='text'+(5)+'--';
 > _
 ```
 

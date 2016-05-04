@@ -1,6 +1,6 @@
 {
   "name": "nano-ejs",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A simple Embedded JavaScript compiler to JavaScript",
   "keywords" : [ "EJS" ],
   "main": "index.js",
